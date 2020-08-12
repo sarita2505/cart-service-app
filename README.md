@@ -40,7 +40,7 @@ class items{
 int id;
 String name;
 Double price;
-int quantity;
+String description;
 String imageUrl;
 }
 ```
