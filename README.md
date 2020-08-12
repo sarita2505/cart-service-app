@@ -25,7 +25,7 @@ In this app. we have some microservices.
  account microservice
  ====================
 ```java
-class Account{
+class UserAccount{
 String name;
 int id;
 String email;
