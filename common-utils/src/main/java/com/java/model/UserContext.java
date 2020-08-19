@@ -1,20 +1,16 @@
 package com.java.model;
 
 public class UserContext {
-    private int accountId;
+    private Integer accountId;
 
     public UserContext() {
     }
 
-    public UserContext(int accountId) {
-        this.accountId = accountId;
-    }
-
-    public int getAccountId() {
+    public Integer getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(int accountId) {
+    public void setAccountId(Integer accountId) {
         this.accountId = accountId;
     }
 
