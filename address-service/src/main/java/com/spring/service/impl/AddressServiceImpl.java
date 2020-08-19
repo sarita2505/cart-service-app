@@ -13,6 +13,7 @@ import java.util.List;
 
 @Service
 public class AddressServiceImpl implements IAddressService {
+
     @Autowired
     IAddressDao<Address, Integer> dao;
     private int i = 0;
@@ -22,7 +23,7 @@ public class AddressServiceImpl implements IAddressService {
         try {
             i = dao.save(address);
         } catch (Exception e) {
-            AddressException exception = new AddressException("exception occured while saving data",
+            AddressException exception = new AddressException(e,
                     new AppError("data is not inserted", 500));
             throw exception;
         }
@@ -40,8 +41,15 @@ public class AddressServiceImpl implements IAddressService {
     }
 
     @Override
-    public Address select(Integer integer) {
-        return null;
+    public List<Address> select()
+    {
+        try {
+            return dao.select();
+        } catch (Exception e) {
+            AddressException exception = new AddressException(e,
+                    new AppError("no data found", 500));
+            throw exception;
+        }
     }
 
     @Override

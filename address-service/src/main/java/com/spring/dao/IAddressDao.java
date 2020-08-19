@@ -1,5 +1,7 @@
 package com.spring.dao;
 
+import com.spring.model.Address;
+
 import java.util.List;
 
 public interface IAddressDao<T, I> {
@@ -9,7 +11,7 @@ public interface IAddressDao<T, I> {
 
     I delete(I i);
 
-    T select(I i);
+    List<Address> select();
 
     List<T> selectAll();
 }

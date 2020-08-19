@@ -25,4 +25,9 @@ public class AddressController {
         List<Address> list=service.selectAll();
         return ResponseEntity.status(200).body(list);
     }
+    @GetMapping("/addressById")
+    public ResponseEntity<List<Address>> select(){
+        List<Address> list=service.select();
+        return ResponseEntity.status(200).body(list);
+    }
 }

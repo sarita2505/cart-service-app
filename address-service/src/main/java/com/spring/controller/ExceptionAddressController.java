@@ -12,13 +12,13 @@ public class ExceptionAddressController {
     private static final Logger LOGGER= LoggerFactory.getLogger(ExceptionAddressController.class);
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> exception(Exception e){
-        LOGGER.error("exception occured"+e);
+        LOGGER.error("exception occured: ",e);
         return ResponseEntity.status(500).body("exception from exception controller class");
     }
 
     @ExceptionHandler(AddressException.class)
     public ResponseEntity<Object> AddressServiceException(AddressException e){
-        LOGGER.error("exception occured"+e);
+        LOGGER.error("exception occured:",e);
         return ResponseEntity.status(500).body("exception from address exceptioncontroller class");
     }
 }

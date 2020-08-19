@@ -11,7 +11,7 @@ public interface IAddressService {
 
     Integer delete(Integer integer);
 
-    Address select(Integer integer);
+    List<Address> select();
 
     List<Address> selectAll();
 }
