@@ -23,7 +23,7 @@ public class ExceptionController {
     public ResponseEntity<Object> cartRequestException(AppCartException e) {
         LOGGER.error("cart exception occured");
         printLogs(e);
-        return new ResponseEntity<>("cart exception occured", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(e.getAppError().getHttpStatus());
     }
 
     private void printLogs(Throwable e)

@@ -13,6 +13,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -36,8 +37,8 @@ public class CartServiceImpl implements ICartService {
             i = dao.save(request);
 
         } catch (DataAccessException e) {
-            AppError error = new AppError("data not found", 500);
-            AppCartException exception = new AppCartException("exception occured in save", error);
+            AppError error = new AppError("data while saving",111, HttpStatus.INTERNAL_SERVER_ERROR);
+            AppCartException exception = new AppCartException(e,error);
             throw exception;
         }
         return i;
@@ -49,8 +50,8 @@ public class CartServiceImpl implements ICartService {
             i = dao.update(request, id);
 
         } catch (DataAccessException e) {
-            AppError error = new AppError("data not found", 500);
-            AppCartException exception = new AppCartException("exception occured in update", error);
+            AppError error = new AppError("data not updated", 112,HttpStatus.INTERNAL_SERVER_ERROR);
+            AppCartException exception = new AppCartException(e, error);
             throw exception;
         }
         return i;

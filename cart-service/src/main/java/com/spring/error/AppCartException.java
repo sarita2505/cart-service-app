@@ -14,4 +14,8 @@ public class AppCartException extends RuntimeException {
         super(cause);
         this.error = error;
     }
+
+    public AppError getAppError() {
+        return error;
+    }
 }
